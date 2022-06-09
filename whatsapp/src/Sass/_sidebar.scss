@@ -1,0 +1,76 @@
+$font-family: "Helvetica";
+
+.sidebar {
+  display: flex;
+  flex-flow: column;
+  width: 250px;
+  height: calc(100vh - 20px);
+  font-family: $font-family;
+  &__nav {
+    display: flex;
+    &__item {
+      width: 50%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px black solid;
+      text-align: center;
+      &:hover {
+        background-color: hsl(201, 100%, 90%);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      &-active {
+        @extend .sidebar__nav__item;
+        border: 1px black solid;
+        border-bottom: none;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: hsl(201, 100%, 90%);
+      }
+    }
+  }
+  &__content {
+    flex: 1 1 auto;
+    border: 1px black solid;
+    border-top: none;
+    border-bottom: none;
+
+    &__item {
+      border-bottom: 1px #c4c4c4 solid;
+      &-selected {
+        background-color: #c4c4c4;
+        border-bottom: 1px #c4c4c4 solid;
+      }
+      &__name {
+        padding: 20px 25px;
+      }
+    }
+  }
+  &__userId {
+    padding: 5px;
+    border: 1px black solid;
+    border-bottom: none;
+    font-size: 12px;
+  }
+  &__newButton {
+    height: 50px;
+    background-color: hsl(201, 100%, 50%);
+    border: 1px black solid;
+    border-top: none;
+    color: white;
+    font-size: 20px;
+
+    &:hover {
+      background-color: hsl(201, 100%, 40%);
+    }
+  }
+}
+.background-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.4;
+}

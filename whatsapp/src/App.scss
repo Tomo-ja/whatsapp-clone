@@ -1,0 +1,14 @@
+@use "./Sass/reset";
+@use "./Sass/login";
+@use "./Sass/sidebar";
+@use "./Sass/modal";
+@use "./Sass/conversation";
+
+.App {
+  margin: 10px 20px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,136 @@
+$font-family: "Helvetica";
+@mixin displayBlock {
+  display: block;
+  width: 100%;
+}
+
+.modal-contact {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(95vw, 500px);
+  border-radius: 20px;
+  background-color: white;
+  font-family: $font-family;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px black solid;
+
+    &__title {
+      font-size: 20px;
+    }
+    &__cancel-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &__body {
+    padding: 20px;
+    &__form {
+      &__label {
+        @include displayBlock();
+        margin-bottom: 5px;
+      }
+      &__input {
+        @include displayBlock();
+        margin-bottom: 15px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px black solid;
+        font-size: 18px;
+      }
+      &__button {
+        display: block;
+        margin-inline: auto;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px black solid;
+        background-color: white;
+        font-size: 18px;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.modal-conversation {
+  @extend .modal-contact;
+  &__header {
+    @extend .modal-contact__header;
+
+    &__header__title {
+      @extend .modal-contact__header__title;
+    }
+    &__cancel-icon {
+      @extend .modal-contact__header__cancel-icon;
+    }
+  }
+  &__body {
+    @extend .modal-contact__body;
+
+    &__form {
+      &__label {
+        display: block;
+        position: relative;
+        padding-left: 45px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        font-size: 18px;
+        user-select: none;
+      }
+      &__input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .modal-conversation__body__form__checkmark {
+          background-color: #2196f3;
+
+          &::after {
+            display: block;
+          }
+        }
+      }
+      &__checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 7px;
+          top: 3px;
+          width: 7px;
+          height: 12px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+      }
+      &__button {
+        @extend .modal-contact__body__form__button;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+}

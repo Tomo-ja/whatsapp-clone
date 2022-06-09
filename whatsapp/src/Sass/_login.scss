@@ -1,0 +1,48 @@
+$font-color-black: #0e0a0a;
+$font-color-white: #fffcff;
+$background-color-blue: #38b8f0;
+$background-color-gray: #cbd4c2;
+$background-color-brown: #c3b299;
+$font-family: "Helvetica";
+
+.login {
+  width: max(500px, 40vw);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-inline: auto;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background-color: $background-color-blue;
+  color: $font-color-black;
+  font-family: $font-family;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__label {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    &__input {
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    &__button {
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-size: 16px;
+      &-submit {
+        margin-bottom: 10px;
+      }
+
+      &-create {
+      }
+    }
+  }
+}
